@@ -1,0 +1,68 @@
+{
+  "name": "glossary-bot",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prestart": "node bin/pre-start",
+    "start": "nodemon --watch . --watch .env.development --watch .env.development.local app/server.js",
+    "lint": "eslint 'app/**/*.js'",
+    "server": "node app/server.js",
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "lint-staged": {
+    "app/**/*.js": "eslint"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-basic-auth": "^1.2.0",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.10",
+    "module-alias": "^2.2.0",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.0",
+    "jest": "^24.8.0",
+    "jest-junit": "^6.4.0",
+    "lint-staged": "^8.2.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.17.1",
+    "shelljs": "^0.8.2",
+    "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "11.10.0",
+    "yarn": ">=1.15.2"
+  },
+  "_moduleAliases": {
+    "@app": "app"
+  },
+  "jest": {
+    "roots": [
+      "app"
+    ],
+    "moduleNameMapper": {
+      "^@app(.*)$": "<rootDir>/app$1"
+    },
+    "collectCoverageFrom": [
+      "app/**/*.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
