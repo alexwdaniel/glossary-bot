@@ -39,7 +39,7 @@
     "lint-staged": "^8.2.0",
     "nodemon": "^1.19.1",
     "prettier": "^1.17.1",
-    "shelljs": "^0.8.2",
+    "shelljs": "^0.8.5",
     "supertest": "^4.0.2"
   },
   "engines": {
